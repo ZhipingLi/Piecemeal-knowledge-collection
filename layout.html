@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      padding: 0;
+      margin: 0;
+    }
+    .box{
+      width: 300px;
+      height: 500px;
+      background-color: red;
+      margin: 300px auto;
+    }
+
+    .inner{
+      background-color: blue;
+      width: 100px;
+      height: 100px;
+    }
+
+    /* 水平垂直居中方式一: 行内元素(文本居中方案) */
+    .box1{
+      text-align: center;
+      line-height: 300px;
+    }
+
+    .inner1{
+      display: inline;
+    }
+
+    /* 水平垂直居中方式二: 非行内元素(相对定位方案) */
+    /* transform: translate(x, y)
+      translateX(x)相当于translate(x, 0)
+      translateY(x)相当于translate(0, x)
+      translate(x)相当于translate(x, 0)
+    */
+    /* 水平居中可以考虑margin-left: auto + margin-right: auto 或 left + translateX 或 margin-left + translateX*/
+    .inner1{
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* 水平垂直居中方式三: 所有元素(flex布局) */
+    .box1{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    /* 水平垂直居中方式四: 所有元素(绝对定位方案) */
+    .box1{
+      position: relative;
+    }
+
+    .inner1{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+    <div class="box box1">
+      <div class="inner inner1">
+        内层
+      </div>
+    </div>
+</body>
+</html>
